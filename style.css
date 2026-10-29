@@ -1,0 +1,432 @@
+/* ==========================================================================
+   Base Layout & Dark Aesthetic
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    background-color: #0b0c10;
+    color: #f5f5f7;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   Clean Navigation Header
+   ========================================================================== */
+header {
+    background: rgba(11, 12, 16, 0.95);
+    padding: 20px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+header .logo {
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    background: linear-gradient(45deg, #00f2fe, #4facfe, #ff007f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header nav a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: #a9b3c4;
+    font-weight: 500;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+header nav a:hover {
+    color: #00f2fe;
+    text-shadow: 0 0 8px rgba(0, 242, 254, 0.6);
+}
+
+/* ==========================================================================
+   Vibrant Hero Section
+   ========================================================================== */
+.hero {
+    padding: 120px 10% 80px 10%;
+    max-width: 1000px;
+}
+
+.hero h1 {
+    font-size: 3.2rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    font-weight: 800;
+}
+
+.gradient-text {
+    background: linear-gradient(45deg, #ff007f, #b92b27, #1565c0, #00f2fe);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textShine 4s linear infinite;
+}
+
+@keyframes textShine {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: #a9b3c4;
+    max-width: 600px;
+    margin-bottom: 35px;
+}
+
+/* ==========================================================================
+   Buttons & Interactive Elements
+   ========================================================================== */
+.btn {
+    display: inline-block;
+    background: linear-gradient(45deg, #ff007f, #7928ca);
+    color: white;
+    padding: 14px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 15px rgba(255, 0, 127, 0.3);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 0, 127, 0.5), 0 0 15px rgba(121, 40, 202, 0.4);
+    background: linear-gradient(45deg, #7928ca, #00f2fe);
+}
+
+.block-btn {
+    width: 100%;
+}
+
+/* ==========================================================================
+   Content Sections & Project Grid
+   ========================================================================== */
+.section {
+    padding: 80px 10%;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 35px;
+}
+
+.card {
+    background: #12141c;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(0, 242, 254, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 242, 254, 0.1), 0 0 20px rgba(121, 40, 202, 0.05);
+}
+
+.card-img {
+    height: 220px;
+    background: linear-gradient(135deg, rgba(255, 0, 127, 0.1), rgba(121, 40, 202, 0.1));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7928ca;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.card:hover .card-img {
+    background: linear-gradient(135deg, rgba(255, 0, 127, 0.2), rgba(0, 242, 254, 0.2));
+    color: #00f2fe;
+}
+
+.card-img span {
+    background: rgba(18, 20, 28, 0.85);
+    padding: 6px 14px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card-content {
+    padding: 25px;
+}
+
+.card-tag {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #00f2fe;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.card h3 {
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+    color: white;
+}
+
+.card p {
+    color: #a9b3c4;
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   About Me & Skills Layout
+   ========================================================================== */
+#about {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 50px;
+    align-items: start;
+}
+
+.about-grid p {
+    color: #a9b3c4;
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+}
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.stack-tag {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.tag-blue {
+    background: rgba(0, 242, 254, 0.1);
+    border: 1px solid #00f2fe;
+    color: #00f2fe;
+}
+
+.tag-pink {
+    background: rgba(255, 0, 127, 0.1);
+    border: 1px solid #ff007f;
+    color: #ff007f;
+}
+
+.tag-purple {
+    background: rgba(121, 40, 202, 0.1);
+    border: 1px solid #7928ca;
+    color: #7928ca;
+}
+
+/* ==========================================================================
+   Inquiry Modal (Pop-up Container)
+   ========================================================================== */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(11, 12, 16, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+
+.modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background: #12141c;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 40px;
+    border-radius: 16px;
+    max-width: 450px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #a9b3c4;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #ff007f;
+}
+
+.modal h2 {
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+    color: white;
+}
+
+.modal p {
+    color: #a9b3c4;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    color: #00f2fe;
+    font-weight: 600;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    background: #1a1d29;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: white;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: #ff007f;
+}
+
+/* ==========================================================================
+   Sticky Back to Top Button
+   ========================================================================== */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: rgba(18, 20, 28, 0.8);
+    border: 1px solid rgba(0, 242, 254, 0.3);
+    color: #00f2fe;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    z-index: 99;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0, 242, 254, 0.1);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px);
+    color: #ffffff;
+    border-color: #ff007f;
+    box-shadow: 0 8px 25px rgba(255, 0, 127, 0.4), 0 0 15px rgba(0, 242, 254, 0.3);
+}
+
+/* ==========================================================================
+   Footer Social Grid & Brand Protection
+   ========================================================================== */
+footer {
+    text-align: center;
+    padding: 40px 10%;
+    color: #626d7f;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 60px;
+    font-size: 0.9rem;
+}
+
+.footer-socials {
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+}
+
+.social-icon {
+    font-size: 1.6rem;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: inline-block;
+}
+
+.icon-linkedin { color: #00f2fe; }
+.icon-linkedin:hover {
+    transform: translateY(-5px) scale(1.15);
+    color: #ffffff;
+    text-shadow: 0 0 15px #00f2fe, 0 0 25px #00f2fe;
+}
+
+.icon-whatsapp { color: #ff007f; }
+.icon-whatsapp:hover {
+    transform: translateY(-5px) scale(1.15);
+    color: #ffffff;
+    text-shadow: 0 0 15px #ff007f, 0 0 25px #ff007f;
+}
+
+.icon-github { color: #7928ca; }
+.icon-github:hover {
+    transform: translateY(-5px) scale(1.15);
+    color: #ffffff;
+    text-shadow: 0 0 15px #7928ca, 0 0 25px #7928ca;
+}
