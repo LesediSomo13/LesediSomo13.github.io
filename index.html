@@ -254,6 +254,8 @@
             font-size: 0.9rem;
         }
     </style>
+        <link rel="stylesheet" href="https://cloudflare.com">
+
 </head>
 <body>
 
@@ -350,23 +352,84 @@
     </main>
 
         <!-- Footer with Social Media & Professional Connections -->
+       <!-- Footer with Dynamic Neon Hover Icons -->
+        <!-- Footer with Dynamic Neon Hover Icons -->
     <footer>
-        <div style="margin-bottom: 25px; display: flex; justify-content: center; gap: 25px;">
-            <!-- LinkedIn -->
-            <a href="https://linkedin.com" target="https://www.linkedin.com/in/kamohelo-somo-222768387/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BCXGqybvYTJCbbL34RJmKQA%3D%3D" style="color: #a9b3c4; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.3s ease, text-shadow 0.3s ease;">
-                LinkedIn
+        <style>
+            .social-icon {
+                font-size: 1.6rem;
+                text-decoration: none;
+                transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+                display: inline-block;
+            }
+            /* LinkedIn - Vibrant Neon Blue Theme */
+            .icon-linkedin { color: #00f2fe; }
+            .icon-linkedin:hover {
+                transform: translateY(-5px) scale(1.15);
+                color: #ffffff;
+                text-shadow: 0 0 15px #00f2fe, 0 0 25px #00f2fe;
+            }
+            /* WhatsApp - Vibrant Neon Pink Theme */
+            .icon-whatsapp { color: #ff007f; }
+            .icon-whatsapp:hover {
+                transform: translateY(-5px) scale(1.15);
+                color: #ffffff;
+                text-shadow: 0 0 15px #ff007f, 0 0 25px #ff007f;
+            }
+            /* GitHub - Vibrant Neon Purple Theme */
+            .icon-github { color: #7928ca; }
+            .icon-github:hover {
+                transform: translateY(-5px) scale(1.15);
+                color: #ffffff;
+                text-shadow: 0 0 15px #7928ca, 0 0 25px #7928ca;
+            }
+        </style>
+        
+        <div style="margin-bottom: 25px; display: flex; justify-content: center; gap: 35px;">
+            <!-- LinkedIn Icon Link -->
+            <a href="https://linkedin.com" target="_blank" class="social-icon icon-linkedin" title="LinkedIn Profile">
+                <i class="fab fa-linkedin-in"></i>
             </a>
-            <!-- WhatsApp -->
-            <a href="https://wa.me" target="27765961888" style="color: #a9b3c4; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.3s ease, text-shadow 0.3s ease;">
-                WhatsApp
+            <!-- WhatsApp Icon Link -->
+            <a href="https://wa.me" target="_blank" class="social-icon icon-whatsapp" title="WhatsApp Message">
+                <i class="fab fa-whatsapp"></i>
             </a>
-            <!-- GitHub -->
-            <a href="https://github.com" target="_blank" style="color: #a9b3c4; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.3s ease, text-shadow 0.3s ease;">
-                GitHub
+            <!-- GitHub Icon Link -->
+            <a href="https://github.com" target="_blank" class="social-icon icon-github" title="GitHub Repository">
+                <i class="fab fa-github"></i>
             </a>
         </div>
         <p>&copy; 2026 Lesedi Somo. Clean design & custom code.</p>
     </footer>
+
+    <script>
+        // Modal logic
+        function toggleModal(e) {
+            if(e) e.preventDefault();
+            const modal = document.getElementById('inquiryModal');
+            modal.classList.toggle('active');
+        }
+
+        // Back to Top trigger functionality
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        // Smooth scroll reset action
+        scrollTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
 
 
     <!-- Interactive Pop-up Modal -->
@@ -391,6 +454,12 @@
                 </div>
                 <button type="submit" class="btn" style="width: 100%;">Submit Inquiry</button>
             </form>
+
+               <!-- Floating Back to Top Button -->
+    <a href="#" class="back-to-top" id="scrollTopBtn" title="Go to Top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+ 
     <script>
         function toggleModal(e) {
             if(e) e.preventDefault();
