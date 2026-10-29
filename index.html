@@ -245,6 +245,41 @@
             border-color: #ff007f;
         }
 
+        /* Sticky Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: rgba(18, 20, 28, 0.8);
+            border: 1px solid rgba(0, 242, 254, 0.3);
+            color: #00f2fe;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.1rem;
+            cursor: pointer;
+            z-index: 99;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.1);
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            color: #ffffff;
+            border-color: #ff007f;
+            box-shadow: 0 8px 25px rgba(255, 0, 127, 0.4), 0 0 15px rgba(0, 242, 254, 0.3);
+        }
+
         footer {
             text-align: center;
             padding: 40px 10%;
@@ -253,219 +288,39 @@
             margin-top: 60px;
             font-size: 0.9rem;
         }
+        .social-icon {
+            font-size: 1.6rem;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: inline-block;
+        }
+        .icon-linkedin { color: #00f2fe; }
+        .icon-linkedin:hover {
+            transform: translateY(-5px) scale(1.15);
+            color: #ffffff;
+            text-shadow: 0 0 15px #00f2fe, 0 0 25px #00f2fe;
+        }
+        .icon-whatsapp { color: #ff007f; }
+        .icon-whatsapp:hover {
+            transform: translateY(-5px) scale(1.15);
+            color: #ffffff;
+            text-shadow: 0 0 15px #ff007f, 0 0 25px #ff007f;
+        }
+        .icon-github { color: #7928ca; }
+        .icon-github:hover {
+            transform: translateY(-5px) scale(1.15);
+            color: #ffffff;
+            text-shadow: 0 0 15px #7928ca, 0 0 25px #7928ca;
+        }
     </style>
-        <link rel="stylesheet" href="https://cloudflare.com">
-
+    <link rel="stylesheet" href="https://cloudflare.com">
 </head>
 <body>
 
     <header>
         <div class="logo">Lesedi Somo</div>
-                <nav>
+        <nav>
             <a href="#work">Work</a>
-            <a href="#about">About</a>
-            <a href="#" onclick="toggleModal(event)">Inquiries</a>
-        </nav>
 
-    </header>
-
-    <main>
-             <section class="hero">
-            <h1>Hi, I'm Lesedi Somo. <br><span class="gradient-text">UX/UI Student & Digital Designer.</span></h1>
-            <p>Based in Johannesburg, Gauteng. I am passionate about crafting minimal, interactive, and structured user experiences. Currently studying design principles and refining my workflow from initial wireframes to high-fidelity clickable prototypes.</p>
-            <button class="btn" onclick="toggleModal(event)">Contact us for inquiries</button>
-        </section>
-
-
-           <section id="work" class="section">
-            <h2 class="section-title">Academic & Personal Projects</h2>
-            <div class="grid">
-                <!-- Case Study Unit 01 -->
-                <div class="card" onclick="toggleModal(event)">
-                    <div class="card-img">
-                        <span style="background: rgba(18,20,28,0.75); padding: 5px 10px; border-radius: 4px;">Figma Prototype Coming Soon</span>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-tag">Mobile UX Case Study</div>
-                        <h3>Local Community App Redesign</h3>
-                        <p>An interactive mobile prototype focused on simplifying local navigation and accessibility challenges.</p>
-                    </div>
-                </div>
-                <!-- Case Study Unit 02 -->
-                <div class="card" onclick="toggleModal(event)">
-                    <div class="card-img">
-                        <span style="background: rgba(18,20,28,0.75); padding: 5px 10px; border-radius: 4px;">Wireframes Coming Soon</span>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-tag">Responsive Web Interface</div>
-                        <h3>Student Portal Dashboard Concept</h3>
-                        <p>A structured, clean grid layout optimizing dark-mode readability and content scheduling for peers.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-                <!-- About Me & Skills Section -->
-        <section id="about" class="section" style="border-top: 1px solid rgba(255, 255, 255, 0.05);">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; align-items: start;">
-                
-                <!-- About Column -->
-                <div>
-                    <h2 class="section-title" style="margin-bottom: 20px;">About Me</h2>
-                    <p style="color: #a9b3c4; margin-bottom: 15px; font-size: 1.05rem;">
-                        I am a dedicated UX/UI Design student focused on building intuitive, beautiful interfaces. My design philosophy centers on accessibility, structured layouts, and deep user empathy. 
-                    </p>
-                    <p style="color: #a9b3c4; font-size: 1.05rem;">
-                        When I'm not mapping out wireframes or building interactive components, I love exploring local visual arts, experimenting with photography styles, and staying up to date with modern web trends.
-                    </p>
-                </div>
-
-                <!-- Tool Stack Column -->
-                <div>
-                    <h2 class="section-title" style="margin-bottom: 20px;">My Tool Stack</h2>
-                    <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-                        <!-- Figma Tag -->
-                        <div style="background: rgba(0, 242, 254, 0.1); border: 1px solid #00f2fe; color: #00f2fe; padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">
-                            Figma
-                        </div>
-                        <!-- Adobe Suite Tag -->
-                        <div style="background: rgba(255, 0, 127, 0.1); border: 1px solid #ff007f; color: #ff007f; padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">
-                            Adobe Creative Cloud
-                        </div>
-                        <!-- Miro Tag -->
-                        <div style="background: rgba(121, 40, 202, 0.1); border: 1px solid #7928ca; color: #7928ca; padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">
-                            Miro (User Mapping)
-                        </div>
-                        <!-- HTML/CSS Tag -->
-                        <div style="background: rgba(0, 242, 254, 0.1); border: 1px solid #00f2fe; color: #00f2fe; padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">
-                            HTML5 & CSS3
-                        </div>
-                        <!-- Wireframing Tag -->
-                        <div style="background: rgba(255, 0, 127, 0.1); border: 1px solid #ff007f; color: #ff007f; padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">
-                            Prototyping & Wireframing
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-    </main>
-
-        <!-- Footer with Social Media & Professional Connections -->
-       <!-- Footer with Dynamic Neon Hover Icons -->
-        <!-- Footer with Dynamic Neon Hover Icons -->
-    <footer>
-        <style>
-            .social-icon {
-                font-size: 1.6rem;
-                text-decoration: none;
-                transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-                display: inline-block;
-            }
-            /* LinkedIn - Vibrant Neon Blue Theme */
-            .icon-linkedin { color: #00f2fe; }
-            .icon-linkedin:hover {
-                transform: translateY(-5px) scale(1.15);
-                color: #ffffff;
-                text-shadow: 0 0 15px #00f2fe, 0 0 25px #00f2fe;
-            }
-            /* WhatsApp - Vibrant Neon Pink Theme */
-            .icon-whatsapp { color: #ff007f; }
-            .icon-whatsapp:hover {
-                transform: translateY(-5px) scale(1.15);
-                color: #ffffff;
-                text-shadow: 0 0 15px #ff007f, 0 0 25px #ff007f;
-            }
-            /* GitHub - Vibrant Neon Purple Theme */
-            .icon-github { color: #7928ca; }
-            .icon-github:hover {
-                transform: translateY(-5px) scale(1.15);
-                color: #ffffff;
-                text-shadow: 0 0 15px #7928ca, 0 0 25px #7928ca;
-            }
-        </style>
-        
-        <div style="margin-bottom: 25px; display: flex; justify-content: center; gap: 35px;">
-            <!-- LinkedIn Icon Link -->
-            <a href="https://linkedin.com" target="_blank" class="social-icon icon-linkedin" title="LinkedIn Profile">
-                <i class="fab fa-linkedin-in"></i>
-            </a>
-            <!-- WhatsApp Icon Link -->
-            <a href="https://wa.me" target="_blank" class="social-icon icon-whatsapp" title="WhatsApp Message">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-            <!-- GitHub Icon Link -->
-            <a href="https://github.com" target="_blank" class="social-icon icon-github" title="GitHub Repository">
-                <i class="fab fa-github"></i>
-            </a>
-        </div>
-        <p>&copy; 2026 Lesedi Somo. Clean design & custom code.</p>
-    </footer>
-
-    <script>
-        // Modal logic
-        function toggleModal(e) {
-            if(e) e.preventDefault();
-            const modal = document.getElementById('inquiryModal');
-            modal.classList.toggle('active');
-        }
-
-        // Back to Top trigger functionality
-        const scrollTopBtn = document.getElementById('scrollTopBtn');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                scrollTopBtn.classList.add('visible');
-            } else {
-                scrollTopBtn.classList.remove('visible');
-            }
-        });
-
-        // Smooth scroll reset action
-        scrollTopBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    </script>
-
-
-
-    <!-- Interactive Pop-up Modal -->
-    <div class="modal" id="inquiryModal">
-        <div class="modal-content">
-            <button class="close-btn" onclick="toggleModal(event)">&times;</button>
-            <h2>Let's Collaborate</h2>
-            <p>Fill out this form for project requests, wireframing inquiries, or general feedback.</p>
-                      <!-- Replace the old form tag with this setup -->
-            <form action="https://formspree.io/f/xgaazvqd" method="POST">
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" name="name" id="name" required placeholder="Lee Kamohelo">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" name="_replyto" id="email" required placeholder="kamohelolesedisomo@gmail.com">
-                </div>
-                <div class="form-group">
-                    <label for="msg">Inquiry Details</label>
-                    <textarea id="msg" name="message" rows="4" required placeholder="Describe your project goals..."></textarea>
-                </div>
-                <button type="submit" class="btn" style="width: 100%;">Submit Inquiry</button>
-            </form>
-
-               <!-- Floating Back to Top Button -->
-    <a href="#" class="back-to-top" id="scrollTopBtn" title="Go to Top">
-        <i class="fas fa-arrow-up"></i>
-    </a>
- 
-    <script>
-        function toggleModal(e) {
-            if(e) e.preventDefault();
-            const modal = document.getElementById('inquiryModal');
-            modal.classList.toggle('active');
-        }
-    </script>
 
 
